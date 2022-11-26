@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6", "dom"],
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "sourceMap": false,
+    "module": "ESNext",
+    "outDir": "./bin",
+    // "outFile": "./bin/index.js",
+    // "esModuleInterop": true,
+    // "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

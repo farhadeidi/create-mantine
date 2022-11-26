@@ -1,0 +1,52 @@
+{
+  "name": "vite-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "serve": "tsc && vite build && vite preview",
+    "mnc": "hygen component mantine --name",
+    "nc": "hygen component new --name",
+    "np": "hygen page new --name",
+    "tsc": "tsc",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mantine/core": "^5.8.3",
+    "@mantine/form": "^5.8.3",
+    "@mantine/hooks": "^5.8.3",
+    "@reduxjs/toolkit": "^1.9.0",
+    "@tanstack/react-query": "^4.17.1",
+    "axios": "^1.2.0",
+    "js-cookie": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "babel-plugin-macros": "^3.1.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "prettier": "^2.8.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
+  }
+}
