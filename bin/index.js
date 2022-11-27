@@ -984,8 +984,6 @@ async function asyncForEach(array, callback) {
 
 // EXTERNAL MODULE: external "path"
 var external_path_ = __nccwpck_require__(17);
-;// CONCATENATED MODULE: external "url"
-const external_url_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("url");
 ;// CONCATENATED MODULE: ./src/templates.ts
 const templateConfigs = {
     "vite-react": {
@@ -1046,16 +1044,15 @@ const templateConfigs = {
 
 
 
-
-const src_filename = (0,external_url_namespaceObject.fileURLToPath)("file:///Users/farhadeidi/Projects/NPX/create-mantine/src/index.ts");
-const src_dirname = external_path_.dirname(src_filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(".");
 const args = process.argv.slice(2);
 const appName = args[0];
 const templates = ["vite-react"];
 const clientPath = process.cwd();
 const clientPath2 = external_path_.resolve("./");
 const execPath = process.execPath;
-const libPath = src_dirname.slice(0, -4);
+const libPath = __dirname.slice(0, -4);
 const createReactViteApp = async () => {
     let template = templates[0];
     const templatePath = `${libPath}/templates/${template}`;

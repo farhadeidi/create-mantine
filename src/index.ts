@@ -10,11 +10,8 @@ import {
 } from "./helpers";
 import * as fs from "fs";
 import * as path from "path";
-import { fileURLToPath } from "url";
 import { templateConfigs } from "./templates";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const args = process.argv.slice(2);
 const appName = args[0];
 const templates = ["vite-react"];
