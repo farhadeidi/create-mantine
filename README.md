@@ -3,7 +3,7 @@
 ### How to use
 
 ```sh
-npx create-mantine@latest app-name
+yarn create mantine app-name
 ```
 
 ## Installed Packages

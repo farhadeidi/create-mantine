@@ -9,20 +9,18 @@ import {
   sleep,
 } from "./helpers";
 import * as fs from "fs";
-import * as path from "path";
 import { templateConfigs } from "./templates";
+
+const sourceFilePath = new URL(".", import.meta.url);
+const sourceFolderPath = new URL("..", sourceFilePath);
 
 const args = process.argv.slice(2);
 const appName = args[0];
 const templates = ["vite-react"];
-const clientPath = process.cwd();
-const clientPath2 = path.resolve("./");
-const execPath = process.execPath;
-const libPath = __dirname.slice(0, -4);
+const libPath = sourceFolderPath.pathname;
 
 const createReactViteApp = async () => {
   let template = templates[0];
-  const templatePath = `${libPath}/templates/${template}`;
   const configs = templateConfigs["vite-react"];
   const constants = {
     siteName: appName,
@@ -47,7 +45,11 @@ const createReactViteApp = async () => {
   await deleteFolderIfExists(`./${appName}/src`);
 
   await asyncForEach(configs.filesToCopy, async (item) => {
-    await copyFile(`${templatePath}/${item}`, `./${appName}/${item}`);
+    const filePath = new URL(
+      `../templates/${template}/${item}`,
+      sourceFilePath
+    );
+    await copyFile(filePath.pathname, `./${appName}/${item}`);
     console.log("Copied => ", item);
     await sleep(100);
   });
@@ -56,7 +58,6 @@ const createReactViteApp = async () => {
     `${appName}/src/configs/constants.ts`,
     `export const constants = ${JSON.stringify(constants, null, 2)}`
   );
-
   await sleep(200);
 
   await runCommand(`cd ${appName} && yarn`);

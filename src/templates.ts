@@ -16,9 +16,9 @@ export const templateConfigs = {
     filesToCopy: [
       "src",
       "_templates",
-      ".babel-plugin-macrosrc.json",
-      ".eslintrc.json",
-      ".prettierrc",
+      `\.babel-plugin-macrosrc.json`,
+      `\.eslintrc.json`,
+      `\.prettierrc`,
       "tsconfig.json",
       "vite.config.ts",
     ],

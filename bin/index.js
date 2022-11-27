@@ -839,6 +839,13 @@ function ncp (source, dest, options, callback) {
 
 /***/ }),
 
+/***/ 4:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+module.exports = __nccwpck_require__.p + "9ce7308a86fac71a1bba.ts";
+
+/***/ }),
+
 /***/ 81:
 /***/ ((module) => {
 
@@ -899,10 +906,49 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("readline");
 /******/ 	return module.exports;
 /******/ }
 /******/ 
+/******/ // expose the modules object (__webpack_modules__)
+/******/ __nccwpck_require__.m = __webpack_modules__;
+/******/ 
 /************************************************************************/
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/publicPath */
+/******/ (() => {
+/******/ 	var scriptUrl;
+/******/ 	if (typeof import.meta.url === "string") scriptUrl = import.meta.url
+/******/ 	// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 	// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 	if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 	scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 	__nccwpck_require__.p = scriptUrl;
+/******/ })();
+/******/ 
 /******/ /* webpack/runtime/compat */
 /******/ 
 /******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
+/******/ /* webpack/runtime/import chunk loading */
+/******/ (() => {
+/******/ 	__nccwpck_require__.b = new URL("./", import.meta.url);
+/******/ 	
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		179: 0
+/******/ 	};
+/******/ 	
+/******/ 	// no install chunk
+/******/ 	
+/******/ 	// no chunk on demand loading
+/******/ 	
+/******/ 	// no external install chunk
+/******/ 	
+/******/ 	// no on chunks loaded
+/******/ })();
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
@@ -917,6 +963,15 @@ var dist = __nccwpck_require__(398);
 var ncp = __nccwpck_require__(268);
 ;// CONCATENATED MODULE: ./src/helpers.ts
 // import ncp from "ncp";
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 const fsPromises = external_fs_.promises;
@@ -924,37 +979,37 @@ const fsPromises = external_fs_.promises;
 const sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
 };
-const copyFile = async (source, target) => {
+const copyFile = (source, target) => __awaiter(void 0, void 0, void 0, function* () {
     ncp(source, target, function (err) {
         if (err) {
             throw err;
         }
     });
-};
-const runCommand = async (command) => {
+});
+const runCommand = (command) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return await (__nccwpck_require__(81).execSync)(command, {
+        return yield (__nccwpck_require__(81).execSync)(command, {
             stdio: "inherit",
         });
     }
     catch (error) {
         throw error;
     }
-};
+});
 const isExists = (folderPath) => {
     if (!external_fs_.existsSync(folderPath)) {
         return false;
     }
     return true;
 };
-const deleteFolderIfExists = async (dir) => {
+const deleteFolderIfExists = (dir) => __awaiter(void 0, void 0, void 0, function* () {
     if (isExists(dir)) {
-        await fsPromises.rm(dir, { recursive: true });
+        yield fsPromises.rm(dir, { recursive: true });
     }
-};
-const makeFile = async (filePath, content) => {
+});
+const makeFile = (filePath, content) => __awaiter(void 0, void 0, void 0, function* () {
     external_fs_.writeFileSync(filePath, content);
-};
+});
 const selectOne = (values) => {
     return new Promise((resolve, reject) => {
         cliSelect({
@@ -976,14 +1031,14 @@ const selectOne = (values) => {
         });
     });
 };
-async function asyncForEach(array, callback) {
-    for (let index = 0; index < array.length; index++) {
-        await callback(array[index], index, array);
-    }
+function asyncForEach(array, callback) {
+    return __awaiter(this, void 0, void 0, function* () {
+        for (let index = 0; index < array.length; index++) {
+            yield callback(array[index], index, array);
+        }
+    });
 }
 
-// EXTERNAL MODULE: external "path"
-var external_path_ = __nccwpck_require__(17);
 ;// CONCATENATED MODULE: ./src/templates.ts
 const templateConfigs = {
     "vite-react": {
@@ -994,9 +1049,9 @@ const templateConfigs = {
         filesToCopy: [
             "src",
             "_templates",
-            ".babel-plugin-macrosrc.json",
-            ".eslintrc.json",
-            ".prettierrc",
+            `\.babel-plugin-macrosrc.json`,
+            `\.eslintrc.json`,
+            `\.prettierrc`,
             "tsconfig.json",
             "vite.config.ts",
         ],
@@ -1040,53 +1095,55 @@ const templateConfigs = {
 };
 
 ;// CONCATENATED MODULE: ./src/index.ts
+var src_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(".");
+const sourceFilePath = new URL(/* asset import */ __nccwpck_require__(4), __nccwpck_require__.b);
+const sourceFolderPath = new URL("..", sourceFilePath);
 const args = process.argv.slice(2);
 const appName = args[0];
 const templates = ["vite-react"];
-const clientPath = process.cwd();
-const clientPath2 = external_path_.resolve("./");
-const execPath = process.execPath;
-const libPath = __dirname.slice(0, -4);
-const createReactViteApp = async () => {
+const libPath = sourceFolderPath.pathname;
+const createReactViteApp = () => src_awaiter(void 0, void 0, void 0, function* () {
     let template = templates[0];
-    const templatePath = `${libPath}/templates/${template}`;
     const configs = templateConfigs["vite-react"];
     const constants = {
         siteName: appName,
         apiUrl: "",
     };
-    await runCommand(`yarn create vite ${appName} --template react-ts`);
+    yield runCommand(`yarn create vite ${appName} --template react-ts`);
     let packageContent = JSON.parse(external_fs_.readFileSync(`${appName}/package.json`, "utf8"));
-    packageContent.scripts = {
-        ...packageContent.scripts,
-        ...configs.scripts,
-    };
-    await makeFile(`${appName}/package.json`, JSON.stringify(packageContent, null, 2));
-    await deleteFolderIfExists(`./${appName}/src`);
-    await asyncForEach(configs.filesToCopy, async (item) => {
-        await copyFile(`${templatePath}/${item}`, `./${appName}/${item}`);
+    packageContent.scripts = Object.assign(Object.assign({}, packageContent.scripts), configs.scripts);
+    yield makeFile(`${appName}/package.json`, JSON.stringify(packageContent, null, 2));
+    yield deleteFolderIfExists(`./${appName}/src`);
+    yield asyncForEach(configs.filesToCopy, (item) => src_awaiter(void 0, void 0, void 0, function* () {
+        const filePath = new URL(`../templates/${template}/${item}`, sourceFilePath);
+        yield copyFile(filePath.pathname, `./${appName}/${item}`);
         console.log("Copied => ", item);
-        await sleep(100);
-    });
-    await makeFile(`${appName}/src/configs/constants.ts`, `export const constants = ${JSON.stringify(constants, null, 2)}`);
-    await sleep(200);
-    await runCommand(`cd ${appName} && yarn`);
-    await runCommand(`cd ${appName} && yarn add ${configs.dependencies.join(" ")}`);
-    await runCommand(`cd ${appName} && yarn add -D ${configs.devDependencies.join(" ")}`);
-};
-const build = async () => {
+        yield sleep(100);
+    }));
+    yield makeFile(`${appName}/src/configs/constants.ts`, `export const constants = ${JSON.stringify(constants, null, 2)}`);
+    yield sleep(200);
+    yield runCommand(`cd ${appName} && yarn`);
+    yield runCommand(`cd ${appName} && yarn add ${configs.dependencies.join(" ")}`);
+    yield runCommand(`cd ${appName} && yarn add -D ${configs.devDependencies.join(" ")}`);
+});
+const build = () => src_awaiter(void 0, void 0, void 0, function* () {
     if (!appName) {
         console.log("Please input a name");
         return;
     }
-    await createReactViteApp();
-};
+    yield createReactViteApp();
+});
 build();
 
 })();
