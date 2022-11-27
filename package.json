@@ -1,7 +1,7 @@
 {
   "name": "create-mantine",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Make a new app with latest repos",
   "author": "Farhad Eidi",
   "license": "ISC",
