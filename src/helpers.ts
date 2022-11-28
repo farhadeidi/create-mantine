@@ -1,9 +1,9 @@
 // import ncp from "ncp";
 
-import * as fs from "fs";
-import cliSelect from "cli-select";
+import * as fs from 'fs';
+import cliSelect from 'cli-select';
 const fsPromises = fs.promises;
-import * as ncp from "ncp";
+import * as ncp from 'ncp';
 
 export const sleep = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -19,8 +19,8 @@ export const copyFile = async (source: string, target: string) => {
 
 export const runCommand = async (command: string) => {
   try {
-    return await require("child_process").execSync(command, {
-      stdio: "inherit",
+    return await require('child_process').execSync(command, {
+      stdio: 'inherit',
     });
   } catch (error) {
     throw error;
@@ -56,11 +56,11 @@ export const selectOne = (values: string[]): Promise<string> => {
       },
     })
       .then((res) => {
-        console.log("Selected =>", res.value);
+        console.log('Selected =>', res.value);
         resolve(res.value);
       })
       .catch(() => {
-        console.log("cancelled");
+        console.log('cancelled');
         reject();
       });
   });
@@ -68,7 +68,7 @@ export const selectOne = (values: string[]): Promise<string> => {
 
 export async function asyncForEach<T>(
   array: T[],
-  callback: (item: T, index: number, arr: T[]) => void
+  callback: (item: T, index: number, arr: T[]) => void,
 ) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
